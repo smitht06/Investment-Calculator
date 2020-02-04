@@ -1,7 +1,7 @@
 public abstract class Asset {
-    String name;
-    String ID;
-    int amountInvested;
+    private String name;
+    private String ID;
+    protected int amountInvested;
     //int valueInTenYears;
 
     public Asset(String name, String ID, int amountInvested) {
@@ -10,6 +10,10 @@ public abstract class Asset {
         this.amountInvested = amountInvested;
     }
 
-    abstract int expectedValueInTenYears();
+    public Asset(){
+        this.name = "";
+        this.ID = "";
+        this.amountInvested = 0;
+    }
 
 }

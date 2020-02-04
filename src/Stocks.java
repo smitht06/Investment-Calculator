@@ -8,11 +8,35 @@ public class Stocks extends Asset{
         this.expected5YearReturn = expected5YearReturn;
         this.expected1YearReturn = expected1YearReturn;
         this.expected90DayReturn = expected90DayReturn;
-
     }
 
-    public int expectedValueInTenYears(double expected90DayReturn, double expected1YearReturn, double expected5YearReturn){
-        double valueIn10 = .06 * expected5YearReturn + .02*expected1YearReturn + .2 * expected90DayReturn;
-        return (int)valueIn10;
+    public Stocks(){
+        this.expected1YearReturn = 0;
+        this.expected5YearReturn = 0;
+        this.expected90DayReturn = 0;
+    }
+
+    public double getExpected5YearReturn() {
+        return expected5YearReturn;
+    }
+
+    public void setExpected5YearReturn(double expected5YearReturn) {
+        this.expected5YearReturn = expected5YearReturn;
+    }
+
+    public double getExpected1YearReturn() {
+        return expected1YearReturn;
+    }
+
+    public void setExpected1YearReturn(double expected1YearReturn) {
+        this.expected1YearReturn = expected1YearReturn;
+    }
+
+    public double getExpected90DayReturn() {
+        return expected90DayReturn;
+    }
+
+    public void setExpected90DayReturn(double expected90DayReturn) {
+        this.expected90DayReturn = expected90DayReturn;
     }
 }
