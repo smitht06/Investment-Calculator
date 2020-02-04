@@ -19,15 +19,10 @@ public class Main {
 
                 counter++;
             }
+
             for(int i = 0; i < assets.length-1; i++){
-                for(int j = 0; j < 5; j++){
-                    assets2[i][0] = assets[i];
+                    System.out.println(assets[i]);
                 }
-            }
-            for(int i = 0; i < assets.length-1; i++){
-                for(int j = 0; j < 5; j++){
-                    System.out.println(assets2[i][j]);
-                }}
 
         }catch(FileNotFoundException e){
             System.out.println("File not found.");
