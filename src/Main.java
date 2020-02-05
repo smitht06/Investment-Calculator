@@ -1,41 +1,39 @@
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args){
-        String[] assets = new String[18];
-        String[][] assets2 = new String[18][5];
+        BufferedReader fileRead = null;
         try{
-            FileInputStream fileStream = null;
-            Scanner fileIn = null;
-            fileStream = new FileInputStream("assetData.csv");
-            fileIn = new Scanner(fileStream);
-            int counter = 0;
-            fileIn.useDelimiter("\n");
-            fileIn.useDelimiter(",");
-            while(fileIn.hasNext()){
-                assets[counter] = fileIn.nextLine();
-
-                counter++;
+            fileRead = new BufferedReader(new FileReader("assetData.csv"));
+            List<Stocks> stocks = new ArrayList<>();
+            String line = "";
+            fileRead.readLine();
+            while ((line = fileRead.readLine()) != null){
+                String[] assetDetails = line.split(",");
+                if(assetDetails.length > 3){
+                    Stocks stk = new Stocks(assetDetails[0],assetDetails[1],Double.parseDouble(assetDetails[2]),Double.parseDouble(assetDetails[3]),Double.parseDouble(assetDetails[4]));
+                    stocks.add(stk);
+                }else if (assetDetails.length < 4){
+                    StableAssets stb = new StableAssets(assetDetails[0],assetDetails[1],Double.parseDouble(assetDetails[2]));
+                }
+            }
+            for(Stocks e : stocks){
+                System.out.println(e.getName());
+                System.out.println(e.getID());
+                System.out.println(e.getExpected1YearReturn());
+                System.out.println(e.getExpected90DayReturn());
+                System.out.println(e.getExpected5YearReturn());
             }
 
-            for(int i = 0; i < assets.length-1; i++){
-                for(int j = 0; j < assets.length-1; j++){
-                    assets2[i] = assets[i].split(",");
-            }}
-
-
-//            assets2[0] = assets[0].split(",");
-            for(int i = 0; i < assets.length-1; i++){
-                System.out.println(Arrays.toString(assets2[i]));
             }
-
-
-
-        }catch(FileNotFoundException e){
+        catch(FileNotFoundException e){
             System.out.println("File not found.");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
