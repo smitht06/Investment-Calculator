@@ -13,23 +13,37 @@ public class Main {
             List<StableAssets> stableAssetsList = new ArrayList<>();
             String line = "";
             fileRead.readLine();
-            while ((line = fileRead.readLine()) != null){
-                String[] assetDetails = line.split(",");
-                if(assetDetails.length > 3){
-                    Stocks stk = new Stocks(assetDetails[0],assetDetails[1],Double.parseDouble(assetDetails[2]),Double.parseDouble(assetDetails[3]),Double.parseDouble(assetDetails[4]));
-                    stockList.add(stk);
-                }else if (assetDetails.length < 4){
-                    StableAssets stb = new StableAssets(assetDetails[0],assetDetails[1],Double.parseDouble(assetDetails[2]));
-                    stableAssetsList.add(stb);
+            while ((line = fileRead.readLine()) != null) {
+                String[] assetDetails = line.split("\n");
+                String[][] assetDetails2d = new String[10][4];
+
+                for (int i = 0; i < assetDetails.length; i++) {
+                    for(int j = 0; j < assetDetails.length; j++){
+                        assetDetails2d[i][j] = Arrays.toString(assetDetails[0].split(","));
                 }
+              }
+                for (int i = 0; i < assetDetails.length; i++) {
+                    for(int j = 0; j < assetDetails.length; j++){
+                        System.out.println(assetDetails2d[i][j]);
+                    }}
+
+
+
+
+                    //Stocks stk = new Stocks(assetDetails[0],assetDetails[1],Double.parseDouble(assetDetails[2]),Double.parseDouble(assetDetails[3]),Double.parseDouble(assetDetails[4]));
+                    //stockList.add(stk);
+
+                    //StableAssets stb = new StableAssets(assetDetails[0],assetDetails[1],Double.parseDouble(assetDetails[2]));
+                    //stableAssetsList.add(stb);
+
             }
-            for(Stocks e : stockList){
-                System.out.println(e.getName());
-                System.out.println(e.getID());
-                System.out.println(e.getExpected1YearReturn());
-                System.out.println(e.getExpected90DayReturn());
-                System.out.println(e.getExpected5YearReturn());
-            }
+//            for(Stocks e : stockList){
+//                System.out.println(e.getName());
+//                System.out.println(e.getID());
+//                System.out.println(e.getExpected1YearReturn());
+//                System.out.println(e.getExpected90DayReturn());
+//                System.out.println(e.getExpected5YearReturn());
+//            }
 
             }
         catch(FileNotFoundException e){
