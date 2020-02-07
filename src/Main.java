@@ -13,19 +13,18 @@ public class Main {
             List<StableAssets> stableAssetsList = new ArrayList<>();
             String line = "";
             fileRead.readLine();
+            String[][] assetDetails2d = new String[10][4];
             while ((line = fileRead.readLine()) != null) {
                 String[] assetDetails = line.split("\n");
-                String[][] assetDetails2d = new String[10][4];
+
 
                 for (int i = 0; i < assetDetails.length; i++) {
                     for(int j = 0; j < assetDetails.length; j++){
                         assetDetails2d[i][j] = Arrays.toString(assetDetails[0].split(","));
                 }
-              }
-                for (int i = 0; i < assetDetails.length; i++) {
-                    for(int j = 0; j < assetDetails.length; j++){
-                        System.out.println(assetDetails2d[i][j]);
-                    }}
+            }
+
+
 
 
 
