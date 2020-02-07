@@ -13,20 +13,26 @@ public class Main {
 
             String line = "";
             fileRead.readLine();
-            String[] assetDetails = new String[17];
+
             String[][] assetDetails2d = new String[17][5];
             int i = 0;
             while ((line = fileRead.readLine()) != null) {
-                int j = 0;
+
                 assetDetails2d[i] = line.split(",");
-                i++;
+
                 if(assetDetails2d[i].length > 3){
                     Asset a = new Stocks(assetDetails2d[i][0],assetDetails2d[i][1],Double.parseDouble(assetDetails2d[i][2]),Double.parseDouble(assetDetails2d[i][3]),Double.parseDouble(assetDetails2d[i][4]));
                     assetList.add(a);
+
+                }else if (assetDetails2d[i].length <= 3){
+                    Asset a = new StableAssets(assetDetails2d[i][0],assetDetails2d[i][1],Double.parseDouble(assetDetails2d[i][2]));
+                    assetList.add(a);
                 }
-
+                i++;
             }
-
+            for(Asset e : assetList){
+                System.out.println(e.toString());
+            }
             }
         catch(FileNotFoundException e){
             System.out.println("File not found.");

@@ -39,4 +39,13 @@ public class Stocks extends Asset{
     public void setExpected90DayReturn(double expected90DayReturn) {
         this.expected90DayReturn = expected90DayReturn;
     }
+
+    @Override
+    public String toString() {
+        return "Stocks{" + getName()+" "+getID()+" "+
+                "expected5YearReturn=" + expected5YearReturn +
+                ", expected1YearReturn=" + expected1YearReturn +
+                ", expected90DayReturn=" + expected90DayReturn +
+                '}';
+    }
 }
