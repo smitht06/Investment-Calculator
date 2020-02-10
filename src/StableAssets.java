@@ -3,10 +3,11 @@ public class StableAssets extends Asset {
 
     public StableAssets(String name, String ID,double rateOfReturn) {
         super(name, ID);
+        this.rateOfReturn = rateOfReturn;
     }
 
     public StableAssets(){
-        this.rateOfReturn = 0;
+
     }
 
     public int expectedValueInTenYears(int amountInvested){
@@ -14,4 +15,9 @@ public class StableAssets extends Asset {
         return (int)expectedValue;
     }
 
+
+    @Override
+    public String toString() {
+        return "StableAssets{Account Type: " + getName() + ", Bank: "+ getID() +", Rate of return: " + this.rateOfReturn + "}";
+    }
 }
