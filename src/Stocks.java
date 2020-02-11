@@ -10,6 +10,10 @@ public class Stocks extends Asset{
         this.expected90DayReturn = expected90DayReturn;
     }
 
+    public Stocks(String ID,String name, int AmountInvested, int profit){
+        super(ID,name,AmountInvested,profit);
+    }
+
     public Stocks(){
         this.expected1YearReturn = 0;
         this.expected5YearReturn = 0;
@@ -40,12 +44,17 @@ public class Stocks extends Asset{
         this.expected90DayReturn = expected90DayReturn;
     }
 
+
+
+    public int valueInTenYears(int amountInvested) {
+        double expectedValue = amountInvested * (0.6 * expected5YearReturn + 0.2 * expected1YearReturn + 0.2 * expected1YearReturn) + amountInvested;
+        return (int) expectedValue;
+    }
+
     @Override
     public String toString() {
-        return "Stocks{" + getName()+" "+getID()+" "+
-                "expected5YearReturn=" + expected5YearReturn +
-                ", expected1YearReturn=" + expected1YearReturn +
-                ", expected90DayReturn=" + expected90DayReturn +
-                '}';
+        return "Stocks{" + " "+getID()+" "+getAmountInvested()+" "+getProfit()+
+
+                "}\n";
     }
 }
