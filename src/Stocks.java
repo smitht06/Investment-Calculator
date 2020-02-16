@@ -31,8 +31,14 @@ public class Stocks extends Asset{
 
     //calculate value of stock in ten years
     public int valueInTenYears(int amountInvested) {
-        double expectedValue = amountInvested * (0.6 * expected5YearReturn + 0.2 * expected1YearReturn + 0.2 * expected90DayReturn) + amountInvested;
-        return (int) expectedValue;
+        if(expected5YearReturn != 0) {
+            double expectedValue = amountInvested * (0.6 * expected5YearReturn + 0.2 * expected1YearReturn + 0.2 * expected90DayReturn) + amountInvested;
+            return (int) expectedValue;
+        }else {
+            double expectedValue = amountInvested * (0.6 * expected1YearReturn + 0.2 * expected90DayReturn) + amountInvested;
+            return (int) expectedValue;
+        }
+
     }
 
     //toString method to output stocks
