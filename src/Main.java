@@ -2,7 +2,6 @@
  * File: Main.java
  * Author: Anthony Smith
  * Date: 2/12/2020
- * Course: COP 5007
  * Purpose: This class is the driver program for the assets program
  * */
 import java.io.*;
