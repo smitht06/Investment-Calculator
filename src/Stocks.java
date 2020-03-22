@@ -2,7 +2,6 @@
  * File: Stocks.java
  * Author: Anthony Smith
  * Date: 2/12/2020
- * Course: COP 5007
  * Purpose: This class is a sublclass of assets for stocks
  * */
 public class Stocks extends Asset{
